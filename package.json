@@ -6,7 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "predeploy": "source .env && ssh $SERVER_USER@$SERVER_IP \"mkdir -p /var/www/devportfolio && systemctl stop caddy\"",
+    "deploy": "npm run build && source .env && scp -r dist/* $SERVER_USER@$SERVER_IP:/var/www/devportfolio/",
+    "postdeploy": "source .env && ssh $SERVER_USER@$SERVER_IP \"systemctl start caddy && systemctl status caddy\""
   },
   "dependencies": {
     "astro": "^5.5.0"

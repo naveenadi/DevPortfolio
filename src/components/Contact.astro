@@ -1,0 +1,136 @@
+<section id="contact">
+	<div class="container">
+		<h2>Get In Touch</h2>
+		<div class="contact-content">
+			<div class="contact-info">
+				<h3>Contact Information</h3>
+				<p>Feel free to reach out to me through any of these channels:</p>
+				<ul>
+					<li>
+						<span class="icon">📧</span>
+						<span>naveenagarwal123451@gmail.com</span>
+					</li>
+					<li>
+						<span class="icon">🔗</span>
+						<a href="https://linkedin.com/in/naveenadi" target="_blank">LinkedIn</a>
+					</li>
+					<li>
+						<span class="icon">💻</span>
+						<a href="https://github.com/naveenadi" target="_blank">GitHub</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="contact-form">
+				<h3>Send Me a Message</h3>
+				<form>
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" required>
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" required>
+					</div>
+					<div class="form-group">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+					</div>
+					<button type="submit" class="btn">Send Message</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	#contact {
+		padding: 4rem 0;
+		background-color: var(--light-gray);
+	}
+
+	h2 {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.contact-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	h3 {
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		color: var(--primary-color);
+	}
+
+	.contact-info p {
+		margin-bottom: 1.5rem;
+		color: var(--secondary-color);
+	}
+
+	.contact-info ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.contact-info li {
+		margin-bottom: 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.icon {
+		font-size: 1.2rem;
+	}
+
+	.contact-info a {
+		color: var(--accent-color);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.contact-info a:hover {
+		color: var(--primary-color);
+	}
+
+	.form-group {
+		margin-bottom: 1.5rem;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+	}
+
+	input, textarea {
+		width: 100%;
+		padding: 0.75rem;
+		border: 1px solid var(--border-color);
+		border-radius: 4px;
+		font-family: inherit;
+		font-size: 1rem;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	@media (max-width: 768px) {
+		.contact-content {
+			grid-template-columns: 1fr;
+		}
+
+		h2 {
+			font-size: 1.8rem;
+		}
+		
+		h3 {
+			font-size: 1.2rem;
+		}
+	}
+</style>

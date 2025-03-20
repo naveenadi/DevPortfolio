@@ -26,17 +26,17 @@
 				<form>
 					<div class="form-group">
 						<label for="name">Name</label>
-						<input type="text" id="name" name="name" required>
+						<input type="text" id="name" name="name" placeholder="Your name" required>
 					</div>
 					<div class="form-group">
 						<label for="email">Email</label>
-						<input type="email" id="email" name="email" required>
+						<input type="email" id="email" name="email" placeholder="Your email address" required>
 					</div>
 					<div class="form-group">
 						<label for="message">Message</label>
-						<textarea id="message" name="message" rows="5" required></textarea>
+						<textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
 					</div>
-					<button type="submit" class="btn">Send Message</button>
+					<button type="submit" class="btn primary">Send Message</button>
 				</form>
 			</div>
 		</div>
@@ -45,30 +45,68 @@
 
 <style>
 	#contact {
-		padding: 4rem 0;
+		padding: 5rem 0;
 		background-color: var(--light-gray);
 	}
 
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
 	h2 {
-		font-size: 2rem;
-		margin-bottom: 2rem;
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
+		position: relative;
+		display: inline-block;
+	}
+
+	h2::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 0;
+		width: 50px;
+		height: 3px;
+		background-color: var(--accent-color);
 	}
 
 	.contact-content {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
+		gap: 3rem;
+		background-color: var(--background-color);
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: var(--card-shadow);
+		padding: 2rem;
+		border: 1px solid var(--border-color);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
 	}
 
 	h3 {
-		font-size: 1.3rem;
-		margin-bottom: 1rem;
+		font-size: 1.4rem;
+		margin-bottom: 1.2rem;
 		color: var(--primary-color);
+		position: relative;
+		display: inline-block;
+	}
+
+	h3::after {
+		content: '';
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		width: 30px;
+		height: 2px;
+		background-color: var(--accent-color);
 	}
 
 	.contact-info p {
 		margin-bottom: 1.5rem;
 		color: var(--secondary-color);
+		line-height: 1.6;
 	}
 
 	.contact-info ul {
@@ -77,20 +115,31 @@
 	}
 
 	.contact-info li {
-		margin-bottom: 1rem;
+		margin-bottom: 1.2rem;
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: 0.8rem;
+		transition: transform 0.3s ease;
+		padding: 0.8rem;
+		border-radius: 8px;
+		background-color: var(--light-gray);
+	}
+
+	.contact-info li:hover {
+		transform: translateX(5px);
+		background-color: rgba(50, 69, 255, 0.05);
 	}
 
 	.icon {
-		font-size: 1.2rem;
+		font-size: 1.3rem;
+		color: var(--accent-color);
 	}
 
 	.contact-info a {
 		color: var(--accent-color);
 		text-decoration: none;
-		transition: color 0.2s ease;
+		transition: color 0.3s ease;
+		font-weight: 500;
 	}
 
 	.contact-info a:hover {
@@ -109,19 +158,29 @@
 
 	input, textarea {
 		width: 100%;
-		padding: 0.75rem;
+		padding: 0.85rem;
 		border: 1px solid var(--border-color);
-		border-radius: 4px;
+		border-radius: 8px;
 		font-family: inherit;
 		font-size: 1rem;
+		transition: border-color 0.3s ease, box-shadow 0.3s ease;
+		background-color: var(--light-gray);
+		color: var(--primary-color);
+	}
+
+	input:focus, textarea:focus {
+		outline: none;
+		border-color: var(--accent-color);
+		box-shadow: 0 0 0 3px rgba(50, 69, 255, 0.1);
 	}
 
 	textarea {
 		resize: vertical;
+		min-height: 120px;
 	}
 
-	@media (max-width: 768px) {
-		.contact-content {
+	.btn {
+		padding: 0
 			grid-template-columns: 1fr;
 		}
 

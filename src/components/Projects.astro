@@ -2,7 +2,15 @@
 	<div class="container">
 		<h2>My Projects</h2>
 		<div class="projects-grid">
-			<div class="project-card">
+			<div class="project-card hover-lift">
+				<div class="project-image">
+					<div class="project-overlay">
+						<div class="project-links">
+							<a href="#" class="btn small">View Demo</a>
+							<a href="#" class="btn small secondary">Source Code</a>
+						</div>
+					</div>
+				</div>
 				<div class="project-content">
 					<h3>E-Commerce Platform</h3>
 					<p>A modern e-commerce solution with cart functionality, user authentication, and payment processing.</p>
@@ -11,14 +19,18 @@
 						<span>Node.js</span>
 						<span>MongoDB</span>
 					</div>
-					<div class="project-links">
-						<a href="#" class="btn small">View Demo</a>
-						<a href="#" class="btn small secondary">Source Code</a>
-					</div>
 				</div>
 			</div>
 			
-			<div class="project-card">
+			<div class="project-card hover-lift">
+				<div class="project-image">
+					<div class="project-overlay">
+						<div class="project-links">
+							<a href="#" class="btn small">View Demo</a>
+							<a href="#" class="btn small secondary">Source Code</a>
+						</div>
+					</div>
+				</div>
 				<div class="project-content">
 					<h3>Task Management App</h3>
 					<p>A productivity application for managing tasks, projects, and deadlines with a clean interface.</p>
@@ -27,14 +39,18 @@
 						<span>Express</span>
 						<span>PostgreSQL</span>
 					</div>
-					<div class="project-links">
-						<a href="#" class="btn small">View Demo</a>
-						<a href="#" class="btn small secondary">Source Code</a>
-					</div>
 				</div>
 			</div>
 			
-			<div class="project-card">
+			<div class="project-card hover-lift">
+				<div class="project-image">
+					<div class="project-overlay">
+						<div class="project-links">
+							<a href="#" class="btn small">View Demo</a>
+							<a href="#" class="btn small secondary">Source Code</a>
+						</div>
+					</div>
+				</div>
 				<div class="project-content">
 					<h3>Weather Dashboard</h3>
 					<p>A weather application that displays current conditions and forecasts using modern visualization techniques.</p>
@@ -43,11 +59,8 @@
 						<span>Weather API</span>
 						<span>CSS3</span>
 					</div>
-					<div class="project-links">
-						<a href="#" class="btn small">View Demo</a>
-						<a href="#" class="btn small secondary">Source Code</a>
-					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -55,84 +68,8 @@
 
 <style>
 	#projects {
-		padding: 4rem 0;
-	}
-
-	h2 {
-		font-size: 2rem;
-		margin-bottom: 2rem;
-	}
-
-	.projects-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-
-	.project-card {
-		background-color: var(--light-gray);
-		border-radius: 4px;
-		overflow: hidden;
-		transition: transform 0.2s ease;
-	}
-
-	.project-card:hover {
-		transform: translateY(-5px);
-	}
-
-	.project-content {
-		padding: 1.5rem;
-	}
-
-	h3 {
-		font-size: 1.3rem;
-		margin-bottom: 0.8rem;
-	}
-
-	p {
-		color: var(--secondary-color);
-		margin-bottom: 1.2rem;
-		font-size: 0.95rem;
-	}
-
-	.project-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-bottom: 1.2rem;
-	}
-
-	.project-tags span {
-		background-color: var(--background-color);
-		padding: 0.3rem 0.6rem;
-		border-radius: 4px;
-		font-size: 0.8rem;
-		color: var(--secondary-color);
-	}
-
-	.project-links {
-		display: flex;
-		gap: 0.8rem;
-	}
-
-	.btn.small {
-		padding: 0.4rem 0.8rem;
-		font-size: 0.85rem;
-	}
-
-	@media (max-width: 768px) {
-		.projects-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>
-	</div>
-</section>
-
-<style>
-	#projects {
 		padding: 5rem 0;
-		background-color: var(--light-gray);
+		background-color: var(--background-color);
 	}
 
 	.container {
@@ -166,15 +103,43 @@
 
 	.project-card {
 		background-color: var(--background-color);
-		border-radius: 8px;
+		border-radius: 12px;
 		overflow: hidden;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+		box-shadow: var(--card-shadow);
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		border: 1px solid var(--border-color);
+		position: relative;
 	}
 
 	.project-card:hover {
 		transform: translateY(-5px);
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+		box-shadow: var(--hover-shadow);
+	}
+	
+	.project-image {
+		height: 200px;
+		background-color: var(--accent-color);
+		background-image: linear-gradient(135deg, var(--accent-color) 0%, #6c8cff 100%);
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.project-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	
+	.project-card:hover .project-overlay {
+		opacity: 1;
 	}
 
 	.project-content {
@@ -212,11 +177,35 @@
 	.project-links {
 		display: flex;
 		gap: 1rem;
+		z-index: 2;
 	}
 
 	.btn.small {
 		padding: 0.5rem 1rem;
 		font-size: 0.9rem;
+	}
+
+	.btn.small.secondary {
+		background-color: transparent;
+		color: var(--primary-color);
+		border: 1px solid var(--accent-color);
+	}
+
+	.btn.small.secondary:hover {
+		background-color: rgba(50, 69, 255, 0.05);
+	}
+
+	.btn.small {
+		background-color: var(--accent-color);
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		transition: all 0.3s ease;
+	}
+
+	.btn.small:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	}
 
 	@media (max-width: 768px) {

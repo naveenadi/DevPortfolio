@@ -1,6 +1,6 @@
 ---
-import '../styles/global.css';
-import ThemeToggle from '../components/ThemeToggle.astro';
+import "../styles/global.css";
+import ThemeToggle from "../components/ThemeToggle.astro";
 ---
 
 <!doctype html>
@@ -10,41 +10,77 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Aditya Agarwal</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<title>Aditya Agarwal | Full Stack Developer</title>
+		<meta
+			name="description"
+			content="Aditya Agarwal - Full Stack Developer specializing in modern web applications with clean code and great user experiences."
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="../scripts/typewriter.js"></script>
+		<script src="../scripts/animations.js"></script>
 	</head>
 	<body>
-		<header>
-			<nav>
-				<div class="logo">Aditya Agarwal</div>
-				<ul>
-					<li><a href="#about">About</a></li>
-					<li><a href="#projects">Projects</a></li>
-					<li><a href="#skills">Skills</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li class="theme-toggle-container"><ThemeToggle /></li>
-				</ul>
-			</nav>
+		<header class="header">
+			<div class="container">
+				<nav>
+					<div class="logo">Aditya Agarwal</div>
+					<ul>
+						<li><a href="#about">About</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li class="theme-toggle-container"><ThemeToggle /></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 		<main>
 			<slot />
 		</main>
 		<footer>
-			<p>&copy; {new Date().getFullYear()} Aditya Agarwal. All rights reserved.</p>
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-info">
+						<p>
+							&copy; {new Date().getFullYear()} Aditya Agarwal. All
+							rights reserved.
+						</p>
+					</div>
+					<div class="footer-links">
+						<a
+							href="https://github.com/naveenadi"
+							target="_blank"
+							class="social-link">GitHub</a
+						>
+						<a
+							href="https://linkedin.com/in/naveenadi"
+							target="_blank"
+							class="social-link">LinkedIn</a
+						>
+						<a href="#contact" class="social-link">Contact</a>
+					</div>
+				</div>
+			</div>
 		</footer>
 	</body>
 </html>
 
 <script>
 	// Initialize theme on page load
-	document.addEventListener('DOMContentLoaded', () => {
-		const theme = localStorage.getItem('theme') || 
-			(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-		
-		if (theme === 'dark') {
-			document.documentElement.classList.add('dark-theme');
+	document.addEventListener("DOMContentLoaded", () => {
+		const theme =
+			localStorage.getItem("theme") ||
+			(window.matchMedia("(prefers-color-scheme: dark)").matches
+				? "dark"
+				: "light");
+
+		if (theme === "dark") {
+			document.documentElement.classList.add("dark-theme");
 		}
 	});
 </script>

@@ -1,13 +1,16 @@
 <section id="hero">
 	<div class="container">
-		<h1>Hi, I'm <span class="highlight">Aditya Agarwal</span></h1>
-		<h2>Full Stack Developer</h2>
-		<p>I build modern, responsive web applications with clean code and great user experiences.</p>
-		<div class="cta-buttons">
-			<a href="#projects" class="btn">View My Work</a>
-			<a href="#contact" class="btn secondary">Contact Me</a>
+		<div class="hero-content">
+			<h1>Hi, I'm <span class="highlight">Aditya Agarwal</span></h1>
+			<h2>I'm a <span class="txt-type" data-wait="3000" data-words='["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"]'></span></h2>
+			<p>I build modern, responsive web applications with clean code and great user experiences.</p>
+			<div class="cta-buttons">
+				<a href="#projects" class="btn primary">View My Work</a>
+				<a href="#contact" class="btn secondary">Contact Me</a>
+			</div>
 		</div>
 	</div>
+	<div class="hero-shape"></div>
 </section>
 
 <style>
@@ -15,33 +18,96 @@
 		min-height: 90vh;
 		display: flex;
 		align-items: center;
-		text-align: left;
+		position: relative;
+		overflow: hidden;
 		padding: 2rem 0;
+		background: linear-gradient(135deg, var(--background-color) 0%, var(--light-gray) 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		max-width: 800px;
+		animation: fadeIn 1s ease-out;
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0; transform: translateY(20px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+
+	.hero-shape {
+		position: absolute;
+		top: -50%;
+		right: -10%;
+		width: 80%;
+		height: 200%;
+		background: var(--accent-color);
+		opacity: 0.05;
+		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+		z-index: 1;
+		animation: morphShape 15s ease-in-out infinite alternate;
+	}
+
+	@keyframes morphShape {
+		0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+		50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+		100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 	}
 
 	h1 {
-		font-size: 3rem;
-		font-weight: 700;
+		font-size: 3.5rem;
+		font-weight: 800;
 		margin-bottom: 1rem;
-		line-height: 1.2;
+		line-height: 1.1;
 	}
 
 	h2 {
-		font-size: 1.8rem;
+		font-size: 2rem;
 		font-weight: 500;
 		margin-bottom: 1.5rem;
 		color: var(--secondary-color);
 	}
 
+	.txt-type {
+		color: var(--accent-color);
+		position: relative;
+	}
+
+	.txt-type::after {
+		content: '|';
+		animation: blink 0.7s infinite;
+	}
+
+	@keyframes blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0; }
+	}
+
 	p {
 		font-size: 1.2rem;
 		line-height: 1.6;
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
 		max-width: 600px;
+		color: var(--secondary-color);
 	}
 
 	.highlight {
 		color: var(--accent-color);
+		position: relative;
+		display: inline-block;
+	}
+
+	.highlight::after {
+		content: '';
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		width: 100%;
+		height: 8px;
+		background-color: var(--accent-color);
+		opacity: 0.2;
+		z-index: -1;
 	}
 
 	.cta-buttons {
@@ -49,13 +115,46 @@
 		gap: 1.5rem;
 	}
 
+	.btn {
+		padding: 0.8rem 2rem;
+		border-radius: 4px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		text-decoration: none;
+		display: inline-block;
+		text-align: center;
+	}
+
+	.btn.primary {
+		background-color: var(--accent-color);
+		color: white;
+		box-shadow: 0 4px 6px rgba(50, 69, 255, 0.2);
+	}
+
+	.btn.primary:hover {
+		background-color: var(--accent-color);
+		box-shadow: 0 6px 8px rgba(50, 69, 255, 0.4);
+		transform: translateY(-2px);
+	}
+
+	.btn.secondary {
+		background-color: transparent;
+		color: var(--primary-color);
+		border: 2px solid var(--accent-color);
+	}
+
+	.btn.secondary:hover {
+		background-color: rgba(50, 69, 255, 0.05);
+		transform: translateY(-2px);
+	}
+
 	@media (max-width: 768px) {
 		h1 {
-			font-size: 2.2rem;
+			font-size: 2.5rem;
 		}
 
 		h2 {
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 		}
 
 		p {
@@ -65,11 +164,6 @@
 		.cta-buttons {
 			flex-direction: column;
 			gap: 1rem;
-		}
-	}
-
-		.btn {
-			text-align: center;
 		}
 	}
 </style>

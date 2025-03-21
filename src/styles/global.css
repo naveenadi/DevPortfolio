@@ -45,8 +45,6 @@ nav {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  width: 60%;
-  position: absolute;
 }
 
 .logo {
@@ -83,7 +81,13 @@ nav a:hover {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 footer {

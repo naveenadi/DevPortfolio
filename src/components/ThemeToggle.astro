@@ -17,7 +17,7 @@
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 50%;
-    transition: background-color 0.2s ease;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,6 +25,7 @@
 
   #themeToggle:hover {
     background-color: var(--light-gray);
+    transform: scale(1.05);
   }
 
   .sun {

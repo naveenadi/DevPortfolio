@@ -1,22 +1,37 @@
 <section id="contact">
 	<div class="container">
-		<h2>Get In Touch</h2>
+		<h2 class="section-title">Get In Touch</h2>
 		<div class="contact-content">
 			<div class="contact-info">
 				<h3>Contact Information</h3>
 				<p>Feel free to reach out to me through any of these channels:</p>
-				<ul>
-					<li>
-						<span class="icon">📧</span>
-						<span>naveenagarwal123451@gmail.com</span>
+				<ul class="contact-list">
+					<li class="contact-item">
+						<div class="icon-wrapper">
+							<span class="icon">📧</span>
+						</div>
+						<div class="contact-details">
+							<span class="contact-label">Email</span>
+							<span class="contact-value">naveenagarwal123451@gmail.com</span>
+						</div>
 					</li>
-					<li>
-						<span class="icon">🔗</span>
-						<a href="https://linkedin.com/in/naveenadi" target="_blank">LinkedIn</a>
+					<li class="contact-item">
+						<div class="icon-wrapper">
+							<span class="icon">🔗</span>
+						</div>
+						<div class="contact-details">
+							<span class="contact-label">LinkedIn</span>
+							<a href="https://linkedin.com/in/naveenadi" target="_blank" class="contact-value">linkedin.com/in/naveenadi</a>
+						</div>
 					</li>
-					<li>
-						<span class="icon">💻</span>
-						<a href="https://github.com/naveenadi" target="_blank">GitHub</a>
+					<li class="contact-item">
+						<div class="icon-wrapper">
+							<span class="icon">💻</span>
+						</div>
+						<div class="contact-details">
+							<span class="contact-label">GitHub</span>
+							<a href="https://github.com/naveenadi" target="_blank" class="contact-value">github.com/naveenadi</a>
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -24,19 +39,28 @@
 			<div class="contact-form">
 				<h3>Send Me a Message</h3>
 				<form>
-					<div class="form-group">
-						<label for="name">Name</label>
-						<input type="text" id="name" name="name" placeholder="Your name" required>
+					<div class="form-row">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" id="name" name="name" placeholder="Your name" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" id="email" name="email" placeholder="Your email address" required>
+						</div>
 					</div>
 					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="email" id="email" name="email" placeholder="Your email address" required>
+						<label for="subject">Subject</label>
+						<input type="text" id="subject" name="subject" placeholder="What's this about?" required>
 					</div>
 					<div class="form-group">
 						<label for="message">Message</label>
 						<textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
 					</div>
-					<button type="submit" class="btn primary">Send Message</button>
+					<button type="submit" class="btn primary">
+						<span class="btn-text">Send Message</span>
+						<span class="btn-icon">→</span>
+					</button>
 				</form>
 			</div>
 		</div>
@@ -45,45 +69,116 @@
 
 <style>
 	#contact {
-		padding: 5rem 0;
+		padding: var(--space-section-y) 0;
 		background-color: var(--light-gray);
+		position: relative;
+		overflow: hidden;
 	}
 
+	#contact::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: var(--texture-dots);
+		opacity: 0.5;
+		z-index: 0;
+	}
 
+	.container {
+		position: relative;
+		z-index: 1;
+	}
 
-	h2 {
-		font-size: 2.5rem;
-		margin-bottom: 3rem;
+	.section-title {
+		font-size: var(--font-size-3xl);
+		margin-bottom: var(--space-2xl);
 		position: relative;
 		display: inline-block;
+		color: var(--primary-color);
+		font-weight: var(--font-weight-bold);
+		letter-spacing: var(--letter-spacing-tight);
 	}
 
-	h2::after {
+	.section-title::after {
 		content: '';
 		position: absolute;
 		bottom: -10px;
 		left: 0;
 		width: 50px;
 		height: 3px;
-		background-color: var(--accent-color);
+		background: var(--gradient-primary);
+		border-radius: 3px;
 	}
 
 	.contact-content {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 3rem;
+		gap: var(--grid-gap-lg);
 		background-color: var(--background-color);
-		border-radius: 12px;
+		border-radius: var(--border-radius-lg);
 		overflow: hidden;
 		box-shadow: var(--card-shadow);
-		padding: 2.5rem;
+		padding: var(--space-2xl);
 		border: 1px solid var(--border-color);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+		position: relative;
+	}
+
+	.contact-content:hover {
+		box-shadow: var(--hover-shadow);
+		transform: translateY(-5px);
+	}
+	
+	@media (max-width: 768px) {
+		.contact-content {
+			grid-template-columns: 1fr;
+			gap: var(--grid-gap);
+			padding: var(--space-xl);
+		}
+		
+		.section-title {
+			font-size: var(--font-size-2xl);
+			margin-bottom: var(--space-xl);
+		}
+		
+		h3 {
+			font-size: var(--font-size-lg);
+		}
+
+		.form-row {
+			flex-direction: column;
+			gap: var(--space-md);
+		}
+
+		.form-row .form-group {
+			width: 100%;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		.contact-content {
+			padding: var(--space-lg);
+			border-radius: var(--border-radius-md);
+		}
+		
+		.contact-item {
+			padding: var(--space-sm) var(--space-md);
+			min-height: var(--min-touch-target);
+			display: flex;
+			align-items: center;
+		}
+		
+		input, textarea, .btn {
+			min-height: var(--min-touch-target);
+		}
 	}
 
 	h3 {
-		font-size: 1.4rem;
-		margin-bottom: 1.2rem;
+		font-size: var(--font-size-xl);
+		margin-bottom: var(--space-lg);
 		color: var(--primary-color);
 		position: relative;
 		display: inline-block;
@@ -100,83 +195,236 @@
 	}
 
 	.contact-info p {
-		margin-bottom: 1.5rem;
+		margin-bottom: var(--space-lg);
 		color: var(--secondary-color);
-		line-height: 1.6;
+		line-height: 1.7;
+		font-size: var(--font-size-base);
 	}
 
-	.contact-info ul {
+	.contact-list {
 		list-style: none;
 		padding: 0;
+		margin: 0;
 	}
 
-	.contact-info li {
-		margin-bottom: 1.2rem;
+	.contact-item {
+		margin-bottom: var(--space-md);
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-md);
+		transition: transform var(--transition-medium), background-color var(--transition-medium), box-shadow var(--transition-medium);
+		padding: var(--space-lg);
+		border-radius: var(--border-radius-md);
+		background-color: var(--light-gray);
+		border: 1px solid transparent;
+	}
+
+	.contact-item:hover {
+		transform: translateX(5px);
+		background-color: rgba(67, 97, 238, 0.05);
+		border-color: var(--accent-color);
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.icon-wrapper {
 		display: flex;
 		align-items: center;
-		gap: 0.8rem;
-		transition: transform 0.3s ease;
-		padding: 0.8rem;
-		border-radius: 8px;
-		background-color: var(--light-gray);
-	}
-
-	.contact-info li:hover {
-		transform: translateX(5px);
-		background-color: rgba(50, 69, 255, 0.05);
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: var(--gradient-primary);
+		color: white;
 	}
 
 	.icon {
-		font-size: 1.3rem;
-		color: var(--accent-color);
+		font-size: 1.2rem;
+	}
+
+	.contact-details {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.contact-label {
+		font-size: var(--font-size-sm);
+		color: var(--secondary-color);
+		font-weight: var(--font-weight-medium);
+	}
+
+	.contact-value {
+		font-size: var(--font-size-base);
+		color: var(--primary-color);
+		font-weight: var(--font-weight-medium);
+		word-break: break-word;
 	}
 
 	.contact-info a {
 		color: var(--accent-color);
 		text-decoration: none;
-		transition: color 0.3s ease;
-		font-weight: 500;
+		transition: color var(--transition-medium);
 	}
 
 	.contact-info a:hover {
 		color: var(--primary-color);
+		text-decoration: underline;
+	}
+
+	.form-row {
+		display: flex;
+		gap: var(--space-lg);
+		margin-bottom: var(--form-group-spacing);
+	}
+
+	.form-row .form-group {
+		width: 50%;
 	}
 
 	.form-group {
-		margin-bottom: 1.5rem;
+		margin-bottom: var(--form-group-spacing);
 	}
 
 	label {
 		display: block;
-		margin-bottom: 0.5rem;
-		font-weight: 500;
+		margin-bottom: var(--space-sm);
+		font-weight: var(--font-weight-medium);
+		color: var(--primary-color);
+		font-size: var(--font-size-sm);
+		letter-spacing: var(--letter-spacing-wide);
 	}
 
 	input, textarea {
 		width: 100%;
-		padding: 0.85rem;
+		padding: var(--space-md) var(--space-lg);
 		border: 1px solid var(--border-color);
-		border-radius: 8px;
+		border-radius: var(--border-radius-md);
 		font-family: inherit;
-		font-size: 1rem;
-		transition: border-color 0.3s ease, box-shadow 0.3s ease;
+		font-size: var(--font-size-base);
+		transition: border-color var(--transition-medium), box-shadow var(--transition-medium), background-color var(--transition-medium);
 		background-color: var(--light-gray);
 		color: var(--primary-color);
+		line-height: 1.7;
 	}
 
 	input:focus, textarea:focus {
 		outline: none;
 		border-color: var(--accent-color);
-		box-shadow: 0 0 0 3px rgba(50, 69, 255, 0.1);
+		box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+		background-color: rgba(var(--background-color-rgb), 0.9);
+	}
+
+	input::placeholder, textarea::placeholder {
+		color: var(--secondary-color);
+		opacity: 0.7;
 	}
 
 	textarea {
 		resize: vertical;
-		min-height: 120px;
+		min-height: 140px;
 	}
 
 	.btn {
-		padding: 0
+		padding: 0.9rem 2rem;
+		border-radius: var(--border-radius-md);
+		font-weight: var(--font-weight-semibold);
+		transition: background-color var(--transition-medium), color var(--transition-medium), transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-md);
+		text-align: center;
+		letter-spacing: 0.5px;
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		min-width: 180px;
+	}
+	
+	.btn.primary {
+		background: var(--gradient-primary);
+		color: white;
+		box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+		border: none;
+	}
+	
+	.btn.primary:hover {
+		box-shadow: 0 6px 15px rgba(67, 97, 238, 0.3);
+		transform: translateY(-3px);
+	}
+
+	.btn.primary:active {
+		transform: translateY(-1px);
+		box-shadow: 0 2px 5px rgba(67, 97, 238, 0.2);
+	}
+
+	.btn-text {
+		font-size: var(--font-size-base);
+	}
+
+	.btn-icon {
+		font-size: var(--font-size-md);
+		transition: transform var(--transition-medium);
+	}
+
+	.btn:hover .btn-icon {
+		transform: translateX(4px);
+	}
+	
+	/* Form message styles */
+	.form-message {
+		margin-top: var(--space-lg);
+		padding: var(--space-lg);
+		border-radius: var(--border-radius-md);
+		font-weight: var(--font-weight-medium);
+		animation: fadeIn 0.4s ease-in-out;
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		line-height: 1.5;
+	}
+	
+	.form-message.success {
+		background-color: rgba(46, 213, 115, 0.1);
+		color: #2ed573;
+		border: 1px solid rgba(46, 213, 115, 0.3);
+	}
+
+	.form-message.error {
+		background-color: rgba(255, 71, 87, 0.1);
+		color: #ff4757;
+		border: 1px solid rgba(255, 71, 87, 0.3);
+	}
+
+	.input-error {
+		border-color: #ff4757 !important;
+		background-color: rgba(255, 71, 87, 0.05) !important;
+	}
+
+	.message-icon {
+		display: inline-block;
+		margin-right: 8px;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeOut {
+		from { opacity: 1; transform: translateY(0); }
+		to { opacity: 0; transform: translateY(-10px); }
+	}
+	
+	@media (max-width: 480px) {
+		.contact-content {
 			grid-template-columns: 1fr;
 		}
 

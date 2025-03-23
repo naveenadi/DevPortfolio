@@ -28,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: '0px',
     threshold: 0.1
   };
+  
+  // Add smooth page transition effect
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      document.body.classList.add('page-visible');
+    }
+  });
+  
+  // Initialize page with fade-in effect
+  document.body.classList.add('page-visible');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

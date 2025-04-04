@@ -24,11 +24,12 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
   
-  /* Line Heights */
+  /* Line Heights - Improved for better readability */
   --line-height-tight: 1.2;
   --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
+  --line-height-relaxed: 1.7;  /* Increased from 1.75 for better readability */
   --line-height-loose: 2;
+  --line-height-article: 1.8;  /* Specific for long-form content */
   
   /* Letter Spacing */
   --letter-spacing-tight: -0.025em;
@@ -48,7 +49,7 @@ html, body {
   color: var(--primary-color);
 }
 
-/* Headings */
+/* Headings - Enhanced for better visual hierarchy */
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   font-family: var(--font-primary);
@@ -56,16 +57,31 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--line-height-tight);
   color: var(--primary-color);
   letter-spacing: var(--letter-spacing-tight);
+  max-width: 50ch; /* Optimal line length for headings */
 }
 
 h1 {
   font-size: var(--font-size-4xl);
   margin-bottom: 1.5rem;
+  font-weight: var(--font-weight-extrabold);
 }
 
 h2 {
   font-size: var(--font-size-3xl);
   margin-bottom: 1.25rem;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius-full);
+  opacity: 0.7;
 }
 
 h3 {
@@ -76,25 +92,50 @@ h3 {
 h4 {
   font-size: var(--font-size-xl);
   margin-bottom: 0.75rem;
+  font-weight: var(--font-weight-semibold);
 }
 
 h5 {
   font-size: var(--font-size-lg);
   margin-bottom: 0.5rem;
+  font-weight: var(--font-weight-semibold);
 }
 
 h6 {
   font-size: var(--font-size-md);
   margin-bottom: 0.5rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
 }
 
-/* Paragraphs */
+/* Paragraphs - Enhanced for better readability */
 p {
   margin-top: 0;
   margin-bottom: var(--paragraph-spacing);
   font-size: var(--font-size-md);
   line-height: var(--line-height-relaxed);
   color: var(--secondary-color);
+  max-width: 70ch; /* Optimal line length for readability */
+}
+
+/* Text utilities for emphasis */
+.text-lead {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-lg);
+}
+
+.text-small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.text-subtle {
+  color: var(--secondary-color);
+  font-size: var(--font-size-sm);
 }
 
 /* Links */

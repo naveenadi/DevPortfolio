@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:optimized": "ENABLE_COMPRESSION=true astro build",
     "preview": "astro preview",
     "astro": "astro",
     "predeploy": "source .env && ssh $SERVER_USER@$SERVER_IP \"mkdir -p /var/www/devportfolio && systemctl stop caddy\"",
-    "deploy": "pnpm run build && source .env && scp -r dist/* $SERVER_USER@$SERVER_IP:/var/www/devportfolio/",
-    "postdeploy": "source .env && ssh $SERVER_USER@$SERVER_IP \"systemctl start caddy && systemctl status caddy\""
+    "deploy": "pnpm run build:optimized && source .env && scp -r dist/* $SERVER_USER@$SERVER_IP:/var/www/devportfolio/",
+    "postdeploy": "source .env && ssh $SERVER_USER@$SERVER_IP \"systemctl start caddy && systemctl status caddy\"",
+    "analyze": "astro build --analyze"
   },
   "dependencies": {
     "astro": "^5.5.0"
